@@ -105,7 +105,7 @@ tDataNode * GetCmdDef(tDataNode * head)
     FILE *fp1;
     char text[CONTENT_LEN] = {'\0'};
     fp1 = fopen("menu.ini","r");
-    /* fp1 = fopen(".\\menu.ini","r");  *//*used in linux environment  */
+    /* fp1 = fopen(".\\menu.ini","r");  *//*used in windows environment  */
     if(fp1 != NULL)
     {
         tDataNode *p = NULL;
