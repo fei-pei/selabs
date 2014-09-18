@@ -4,3 +4,5 @@ lab1/lab1.depend
 lab1/lab1.layout
 lab1/obj/Debug/menu_forlinux.o
 lab1/obj/Debug/menu_forwindows.o
+lab1/menu_forlinux.exe
+lab1/menu_forlinux.o

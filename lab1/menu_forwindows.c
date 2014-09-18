@@ -6,7 +6,7 @@
 /*  SUBSYSTEM NAME        :  menu                                                                 */
 /*  MODULE NAME           :  menu                                                                 */
 /*  LANGUAGE              :  C                                                                    */
-/*  TARGET ENVIRONMENT    :  ANY                                                                  */
+/*  TARGET ENVIRONMENT    :  WINDOWS                                                              */
 /*  DATE OF FIRST RELEASE :  2014/09/08                                                           */
 /*  DESCRIPTION           :  This is a menu program                                               */
 /**************************************************************************************************/
