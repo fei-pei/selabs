@@ -1,3 +1,23 @@
+/**************************************************************************************************/
+/*  Copyright (C) SSE@USTC, 2014-2015                                                             */
+/*                                                                                                */
+/*  FILE NAME             :  menu.h                                                               */
+/*  PRINCIPAL AUTHOR      :  PeiFei                                                               */
+/*  SUBSYSTEM NAME        :  menu                                                                 */
+/*  MODULE NAME           :  menu                                                                 */
+/*  LANGUAGE              :  C                                                                    */
+/*  TARGET ENVIRONMENT    :  ANY                                                                  */
+/*  DATE OF FIRST RELEASE :  2014/09/27                                                           */
+/*  DESCRIPTION           :  This is a menu program                                               */
+/**************************************************************************************************/
+
+/*
+ * Revision log:
+ *
+ * Created by PeiFei, 2014/09/27
+ *
+ */
+
 #include"linktable.h"
 #ifndef _MENU_H_
 #define _MENU_H_
@@ -39,14 +59,8 @@ int DelCmd(tLinkTable *head, const char * cmd);
 /* turn on or turn off a command */
 int OnOffCmd(tLinkTable *head, const char *cmd,int enable);
 
-/* run a command */
-int RunCmd(tLinkTable * head, tDataNode *pNode);
-
 /* show all cmd in listlist */
 int Help(tLinkTable * head);
-
-/* quit the program */
-int Quit(tLinkTable * head);
 
 /* the stub function */
 int Stub(tLinkTable * head);

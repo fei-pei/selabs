@@ -23,6 +23,11 @@
 #include <string.h>
 #include "menu.h"
 
+/* run a command */
+int RunCmd(tLinkTable * head, tDataNode *pNode);
+/* quit the program */
+int Quit(tLinkTable * head);
+
 /* initialise hte cmd */
 int InitCmd(tLinkTable * head)
 {
@@ -123,7 +128,7 @@ int OnOffCmd(tLinkTable *head, const char *cmd,int enable)
     }
     return 0;
 }
-
+/* run a command */
 int RunCmd(tLinkTable * head, tDataNode *pNode)
 {
         if (pNode->handler != NULL)
@@ -141,7 +146,7 @@ int RunCmd(tLinkTable * head, tDataNode *pNode)
         }
         return FAILURE;
 }
-
+/* the start of the menu */
 int MenuStart(tLinkTable * head)
 {
     while (1)
@@ -163,10 +168,10 @@ int MenuStart(tLinkTable * head)
     return 0;
 }
 
+/* show all command */
 int Help(tLinkTable * head)
 {
-    FindAllCmd(head);
-    return 0;
+    return FindAllCmd(head);
 }
 
 int Quit(tLinkTable * head)

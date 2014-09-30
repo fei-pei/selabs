@@ -30,12 +30,14 @@ int TestAddCmd(tLinkTable * head);
 int TestInitCmd(tLinkTable * head);
 /* test FindCmd */
 int TestFindCmd(tLinkTable * head);
-
 /* test OnOffCmd */
 int TestOnOffCmd(tLinkTable * head);
 /* test DelCmd */
 int TestDelCmd(tLinkTable * head);
-
+/* Test the MenuStart */
+int TestMenuStart(tLinkTable * head);
+/* Test the Help */
+int TestHelp(tLinkTable * head);
 int Test1(tLinkTable * head);
 
 
@@ -45,7 +47,7 @@ int main()
     InitCmd(head);
 	AddCmd(head, "show","this is show cmd!", NULL, ENABLE);
 	AddCmd(head,"test1", "for instance", Test1, ENABLE);
-	Help(head);
+	TestHelp(head);
 	printf("test is ready,press any key to begin!\n");
 	getchar();
 
@@ -58,7 +60,7 @@ int main()
     /* cmd line begins */
     if(Stub(head) == SUCCESS)
     {
-        MenuStart(head);
+        TestMenuStart(head);
     }
 	return 0;
 }
@@ -80,33 +82,33 @@ int TestAddCmd(tLinkTable * head)
         p=FindCmd(head, "ta1");
         if(p != NULL)
         {
-            printf("normal AddCmd test is passed\n");
+            printf("normal AddCmd test is passed!\n");
         }
         else
         {
-            printf("normal AddCmd test is failure,can't find the cmd\n");
+            printf("normal AddCmd test is failure,can't find the cmd!\n");
         }
     }
     else
     {
-        printf("normal AddCmd test is failure in the process\n");
+        printf("normal AddCmd test is failure in the process!\n");
     }
     /*  test repeat add cmd  */
     if(AddCmd(head, "ta1", " ", NULL, ENABLE) == FAILURE)
     {
-        printf("repeat AddCmd test is passed\n");
+        printf("repeat AddCmd test is passed!\n");
     }
     /*  test add cmd in to a wrong head  */
     tLinkTable * testhead;
     testhead=NULL;
     if(AddCmd(testhead, "ta2", "t2test", NULL, ENABLE) == FAILURE)
     {
-        printf("wrong head AddCmd test is passed\n");
+        printf("wrong head AddCmd test is passed!\n");
     }
     /*  test add cmd in to a wrong head  */
     if(AddCmd(head, '\0', "t3test", NULL, ENABLE) == FAILURE)
     {
-        printf("empty cmd AddCmd test is passed\n");
+        printf("empty cmd AddCmd test is passed!\n");
     }
     return 0;
 }
@@ -121,16 +123,16 @@ int TestInitCmd(tLinkTable * head)
         p=FindCmd(head, "quit");
         if(p != NULL)
         {
-            printf("InitCmd test is passed\n");
+            printf("InitCmd test is passed!\n");
         }
         else
         {
-             printf("InitCmd test failed,can't find the \"quit\" cmd\n");
+             printf("InitCmd test failed,can't find the \"quit\" cmd!\n");
         }
     }
     else
     {
-        printf("InitCmd test failed,can't find the \"help\" cmd\n");
+        printf("InitCmd test failed,can't find the \"help\" cmd!\n");
     }
     return 0;
 }
@@ -167,7 +169,6 @@ int TestDelCmd(tLinkTable * head)
     if(AddCmd(head, "td", "tdtest", NULL, ENABLE) == FAILURE)
     {
         p=FindCmd(head, "td");
-
         if(p != NULL)
         {
             if(DelCmd(head,"td")==SUCCESS)
@@ -191,7 +192,6 @@ int TestDelCmd(tLinkTable * head)
         {
             printf("DelCmd test is failure when add cmd into linktable!\n");
         }
-
     }
     if(DelCmd(head,"")==SUCCESS)
     {
@@ -201,7 +201,6 @@ int TestDelCmd(tLinkTable * head)
     {
         printf("Del empty Cmd test is passed!\n");
     }
-
     return 0;
 }
 
@@ -236,5 +235,29 @@ int TestOnOffCmd(tLinkTable * head)
     {
         printf("OnOffCmd test is failure,the cmd is not exist!\n");
     }
-        return 0;
+    return 0;
+}
+
+/* Test the MenuStart */
+int TestMenuStart(tLinkTable * head)
+{
+    printf("MenuStart test is ready, try to input the command on the top of the screen\n");
+    printf("If the function is right, the test is passed. Press any key to begin!\n");
+    getchar();
+    MenuStart(head);
+    return 0;
+}
+
+/* Test the Help */
+int TestHelp(tLinkTable * head)
+{
+    if(Help(head)==0)
+    {
+        printf("Help test is success!\n");
+    }
+    else
+    {
+        printf("Help test is failure!\n");
+    }
+    return 0;
 }
